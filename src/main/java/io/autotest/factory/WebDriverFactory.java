@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Value;
 
+import static javax.print.attribute.standard.MediaSizeName.C;
+
 public class WebDriverFactory {
     @Value("${driver.name:chrome}")
     private String driverName;
@@ -27,9 +29,10 @@ public class WebDriverFactory {
         if ("ignore".equals(chromeDriverLocation)) {
             throw new IllegalArgumentException("No webdriver.chrome.driver specified to use driver.name=chrome");
         }
-        System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
+        System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chromedriver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         return driver;
     }
+
 
 }
